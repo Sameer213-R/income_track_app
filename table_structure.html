@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Data - {{ table_name }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            margin: 20px 0;
+        }
+
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background-color: black;
+        }
+
+        th, td {
+            border: 1px solid white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #007BFF;
+        }
+
+        tr:nth-child(even) {
+            background-color: #1A1A1A;
+        }
+
+        tr:hover {
+            background-color: #4682B4;
+        }
+    </style>
+</head>
+<body>
+    <h1>Data from Table: {{ table_name }}</h1>
+    <table>
+        <thead>
+            <tr>
+                {% for column in column_names %}
+                    <th>{{ column }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in table_data %}
+                <tr>
+                    {% for cell in row %}
+                        <td>{{ cell }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Income Tracker - Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            overflow-y: auto;
+        }
+
+        .header {
+            font-size: 28px;
+            font-weight: bold;
+            margin-top: 20px;
+            animation: moveText 3s infinite alternate;
+        }
+
+        @keyframes moveText {
+            from {
+                transform: translateX(-50px);
+            }
+            to {
+                transform: translateX(50px);
+            }
+        }
+
+        .analysis-container {
+            padding: 20px;
+            width: 90%;
+            max-width: 1200px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .analysis-container h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .image-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .image-container {
+            width: 300px;
+            text-align: center;
+            background-color: rgba(30, 60, 114, 0.8);
+            padding: 10px;
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .image-container img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .image-container:hover {
+            transform: scale(1.1);
+        }
+
+        .image-container p {
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+        .download-btn {
+            margin-top: 30px;
+            background-color: #1e90ff;
+            color: white;
+            border: none;
+            padding: 10px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .download-btn:hover {
+            background-color: #4682b4;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">Income Tracker - Data Analysis</div>
+    <div class="analysis-container">
+        <h1>Analysis Results</h1>
+        <p>The following graphs and insights represent the analysis of income and expenses tracked using the Income Tracker Application.</p>
+        
+        <div class="image-gallery">
+            <div class="image-container">
+                <img src="{{ url_for('static', filename='images/bar.jpg') }}" alt="Graph 1">
+                <p>Graph 1: Income vs Expenses</p>
+            </div>
+            <div class="image-container">
+                <img src="{{ url_for('static', filename='images/pie.jpg') }}" alt="Graph 2">
+                <p>Graph 2: Expense Breakdown</p>
+            </div>
+            <div class="image-container">
+                <img src="{{ url_for('static', filename='images/bar2.jpg') }}" alt="Graph 3">
+                <p>Graph 3: Monthly Income</p>
+            </div>
+            <div class="image-container">
+                <img src="{{ url_for('static', filename='images/bar3.jpg') }}" alt="Graph 4">
+                <p>Graph 4: Savings Overview</p>
+            </div>
+            <div class="image-container">
+                <img src="{{ url_for('static', filename='images/pie2.jpg') }}" alt="Graph 5">
+                <p>Graph 5: Annual Comparison</p>
+            </div>
+        </div>
+
+        <button class="download-btn">
+            <a href="/close" style="text-decoration:none;color:white;">Close Report</a>
+        </button>
+    </div>
+</body>
+</html>
